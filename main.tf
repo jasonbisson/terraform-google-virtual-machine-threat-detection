@@ -104,17 +104,18 @@ resource "google_compute_firewall" "ingress" {
   }
 }
 
-resource "google_compute_firewall" "ssh" {
-  project       = module.project.project_id
-  name        = "allow-ssh"
-  network     = google_compute_network.vpc_network.name
-  priority = 999
-  description = "Creates firewall for ssh"
+resource "google_compute_firewall" "googleapi_egress" {
+  project            = module.project.project_id
+  name               = "allow-googleapi-egress"
+  description        = "Allow connectivity to storage ${var.environment}"
+  network            = google_compute_network.vpc_network.name
+  priority           = 999
+  direction          = "EGRESS"
+  destination_ranges = ["199.36.153.8/30"]
   allow {
     protocol = "tcp"
-    ports = ["22"]
+    ports = ["443"]
   }
-  source_ranges = ["35.235.240.0/20"]
 }
 
 resource "google_dns_managed_zone" "private" {
