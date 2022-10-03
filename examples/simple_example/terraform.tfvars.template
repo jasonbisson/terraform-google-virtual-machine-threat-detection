@@ -1,0 +1,5 @@
+org_id          = ""
+billing_account = ""
+folder_id       = ""
+environment     = "vmtd"
+project_name    = "vmtd"

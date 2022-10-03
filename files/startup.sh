@@ -23,7 +23,7 @@ function start_miner () {
 cd /tmp || exit
 sudo chmod 777 "${BINARY}"
 sudo ./"${BINARY}" &
-sleep 60m
+sleep 180m
 sudo shutdown
 }
 

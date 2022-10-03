@@ -59,7 +59,7 @@ variable "dnszone" {
 variable "machine_type" {
   description = "Machine type to application"
   type        = string
-  default     = "n1-standard-2"
+  default     = "n1-standard-1"
 }
 
 variable "disk_size_gb" {

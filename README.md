@@ -2,11 +2,13 @@
 
 This module will deploy an isolated project that will deploy a Google Compute instance that will execute a inactive crptominer binary to demostrate the capability of Virtual Machine Threat Detection to detect the memory footprint of a cryptominer.
 
+## Demo Reference Architecture
+![Reference Architecture](diagram/vmtd.png)
 
 The resources/services/activations/deletions that this module will create/trigger are:
 
 - Create a Google Cloud project
-- Download the inactive crypto miner from https://github.com/GoogleCloudPlatform/security-response-automation
+- Internet access to download the inactive crypto miner from https://github.com/GoogleCloudPlatform/security-response-automation
 - Copy the inactive crypto miner to a Storage Bucket
 - Create a VPC with firewall rules blocking both Ingres and Egress except to subnet for private.googleapis.com
 - Create Private DNS Zone for private googleapis and DNS record for storag.googleapis.com
@@ -116,4 +118,4 @@ To enable SSH access using Identity Aware Proxy use the following commands:
 - `mv ssh_access.template ssh_access.tf` to rename firewall template to allow ssh access
 - `terraform plan` to see firewall update in the infrastructure plan
 - `terraform apply` to apply firewall update to infrastructure build
-- ssh to only gce instance in project and run `ps -ef |grep inactivated_miner`
+- ssh vmtd gce instance in project and run `ps -ef |grep inactivated_miner`
