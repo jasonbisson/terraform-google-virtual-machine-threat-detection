@@ -164,10 +164,12 @@ resource "null_resource" "download_miner" {
   provisioner "local-exec" {
     command = <<EOF
     cd /tmp
-    git clone "https://github.com/GoogleCloudPlatform/security-response-automation.git"
-    cd security-response-automation
+    git clone "https://github.com/GoogleCloudPlatform/security-response-automation.git" security-response-automation-${random_id.random_suffix.hex}
+    cd security-response-automation-${random_id.random_suffix.hex}
     tar -zxvf ${local.zipfile}
     gsutil cp ${local.binary} ${google_storage_bucket.miner_bucket.url}
+    cd /tmp
+    rm -rf security-response-automation-${random_id.random_suffix.hex}
     EOF
   }
   depends_on = [google_storage_bucket.miner_bucket]
