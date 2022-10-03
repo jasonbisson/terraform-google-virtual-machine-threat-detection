@@ -16,16 +16,17 @@ BUCKET=${BUCKET}
 BUCKET=${BINARY}
 
 function download_archive () {
-gsutil cp ${BUCKET}/${BINARY}	/tmp  
+gsutil cp "${BUCKET}"/"${BINARY}"	/tmp
 }
 
 function start_miner () {
-cd /tmp
-sudo chmod 777 ${BINARY}
-sudo ./${BINARY} &
+cd /tmp || exit
+sudo chmod 777 "${BINARY}"
+sudo ./"${BINARY}" &
 sleep 60m
 sudo shutdown
 }
 
 download_archive
 start_miner
+

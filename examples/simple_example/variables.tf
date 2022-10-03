@@ -14,12 +14,29 @@
  * limitations under the License.
  */
 
-variable "project_id" {
-  description = "The ID of the project in which to provision resources."
+variable "org_id" {
+  description = "The numeric organization id"
   type        = string
 }
 
-variable "bucket_name" {
-  description = "The name of the bucket to create."
+variable "folder_id" {
+  description = "The folder to deploy project in"
   type        = string
+}
+
+variable "billing_account" {
+  description = "The billing account id associated with the project, e.g. XXXXXX-YYYYYY-ZZZZZZ"
+  type        = string
+}
+
+variable "project_name" {
+  description = "Prefix of Google Project name"
+  type        = string
+  default     = "vmtd"
+}
+
+variable "environment" {
+  description = "Environment tag to help identify the entire deployment"
+  type        = string
+  default     = "vmtd"
 }

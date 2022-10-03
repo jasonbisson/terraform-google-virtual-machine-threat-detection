@@ -29,7 +29,7 @@ variable "billing_account" {
 }
 
 variable "project_name" {
-  description = "Google Project Name"
+  description = "Prefix of Google Project name"
   type        = string
 }
 
@@ -79,7 +79,7 @@ variable "can_ip_forward" {
 }
 
 variable "labels" {
-  type        = map
+  type        = map(any)
   description = "Labels, provided as a map"
   default     = {}
 }

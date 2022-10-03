@@ -17,6 +17,10 @@
 module "virtual_machine_threat_detection" {
   source = "../.."
 
-  project_id  = var.project_id
-  bucket_name = var.bucket_name
+  org_id          = var.org_id
+  billing_account = var.billing_account
+  folder_id       = var.folder_id
+  environment     = var.environment
+  project_name    = var.project_name
+
 }

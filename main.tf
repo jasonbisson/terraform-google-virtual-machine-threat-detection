@@ -69,12 +69,12 @@ resource "google_compute_network" "vpc_network" {
 }
 
 resource "google_compute_subnetwork" "subnet" {
-  project       = module.project.project_id
-  name          = "${var.environment}-${random_id.random_suffix.hex}"
-  ip_cidr_range = "10.2.0.0/16"
-  region        = var.region
+  project                  = module.project.project_id
+  name                     = "${var.environment}-${random_id.random_suffix.hex}"
+  ip_cidr_range            = "10.2.0.0/16"
+  region                   = var.region
   private_ip_google_access = true
-  network       = google_compute_network.vpc_network.name
+  network                  = google_compute_network.vpc_network.name
 
 }
 
@@ -114,16 +114,16 @@ resource "google_compute_firewall" "googleapi_egress" {
   destination_ranges = ["199.36.153.8/30"]
   allow {
     protocol = "tcp"
-    ports = ["443"]
+    ports    = ["443"]
   }
 }
 
 resource "google_dns_managed_zone" "private" {
-  project       = module.project.project_id
+  project     = module.project.project_id
   name        = "${var.environment}-${random_id.random_suffix.hex}"
   dns_name    = "storage.googleapis.com."
   description = "Private DNS zone for storage api"
-  visibility = "private"
+  visibility  = "private"
   private_visibility_config {
     networks {
       network_url = google_compute_network.vpc_network.id
@@ -132,11 +132,11 @@ resource "google_dns_managed_zone" "private" {
 }
 
 resource "google_dns_record_set" "default" {
-  project       = module.project.project_id
+  project      = module.project.project_id
   managed_zone = google_dns_managed_zone.private.name
   name         = "storage.googleapis.com."
   type         = "A"
-  rrdatas      = ["199.36.153.8", "199.36.153.9","199.36.153.10", "199.36.153.11"]
+  rrdatas      = ["199.36.153.8", "199.36.153.9", "199.36.153.10", "199.36.153.11"]
   ttl          = 86400
 
   depends_on = [
@@ -165,7 +165,7 @@ resource "null_resource" "download_miner" {
     command = <<EOF
     cd /tmp
     git clone "https://github.com/GoogleCloudPlatform/security-response-automation.git"
-    cd security-response-automation 
+    cd security-response-automation
     tar -zxvf ${local.zipfile}
     gsutil cp ${local.binary} ${google_storage_bucket.miner_bucket.url}
     EOF
@@ -196,10 +196,10 @@ resource "google_compute_instance" "default" {
   }
 
   metadata_startup_script = data.template_file.startup_script_config.rendered
-  
+
   network_interface {
-    network    = google_compute_network.vpc_network.name
-    subnetwork = google_compute_subnetwork.subnet.name
+    network            = google_compute_network.vpc_network.name
+    subnetwork         = google_compute_subnetwork.subnet.name
     subnetwork_project = module.project.project_id
   }
 
