@@ -21,8 +21,7 @@ Basic usage of this module is as follows:
 
 ```hcl
 module "virtual_machine_threat_detection" {
-  source  = "jasonbisson/virtual-machine-threat-detection/"
-  version = "~> 0.1"
+  source  = "github.com/jasonbisson/terraform-google-virtual-machine-threat-detection"
 
   org_id          = var.org_id
   billing_account = var.billing_account
@@ -73,7 +72,7 @@ The following dependencies must be available:
 
 - [Terraform][terraform] v0.13
 - [Terraform Provider for GCP][terraform-provider-gcp] plugin v3.0
-- [git command line][https://git-scm.com/downloads] to download repo with inactive miner
+- [Git command line][https://git-scm.com/downloads] to download repo with inactive miner
 - [gsutil][https://cloud.google.com/storage/docs/gsutil] to copy the inactive miner to Storage Bucket
 - Security Command Center premium with VMTD enabled on destination folder
 
@@ -81,7 +80,7 @@ The following dependencies must be available:
 A service account with the following roles must be used to provision
 the resources of this module:
 
-- Project Creator: `roles/resourcemanager.projectCreator)`
+- Project Creator: `roles/resourcemanager.projectCreator`
 - Compute Admin: `roles/compute.admin`
 - Storage Admin: `roles/storage.admin`
 - DNS Admin: `roles/dns.admin`
