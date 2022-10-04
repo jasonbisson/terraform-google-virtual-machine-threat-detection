@@ -3,7 +3,7 @@
 This module will deploy an isolated project that will deploy a Google Compute instance that will execute a inactive crptominer binary to demostrate the capability of Virtual Machine Threat Detection to detect the memory footprint of a cryptominer.
 
 ## Demo Reference Architecture
-[Reference Architecture](diagram/vmtd.png)
+![Reference Architecture](diagram/VMTD.png)
 
 The resources/services/activations/deletions that this module will create/trigger are:
 
