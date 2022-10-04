@@ -25,3 +25,4 @@ To provision this example, run the following from within this directory:
 - `terraform plan` to see the infrastructure plan
 - `terraform apply` to apply the infrastructure build
 - `terraform destroy` to destroy the built infrastructure
+- Check Security Command Center console between 1-2 hours for an alert.
