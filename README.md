@@ -49,7 +49,7 @@ Functional examples are included in the
 | environment | Environment tag to help identify the entire deployment | `string` | n/a | yes |
 | folder\_id | The folder to deploy project in | `string` | n/a | yes |
 | labels | Labels, provided as a map | `map(any)` | `{}` | no |
-| machine\_type | Machine type to application | `string` | `"n1-standard-2"` | no |
+| machine\_type | Machine type to application | `string` | `"n1-standard-1"` | no |
 | org\_id | The numeric organization id | `string` | n/a | yes |
 | project\_name | Prefix of Google Project name | `string` | n/a | yes |
 | region | The GCP region to create and test resources in | `string` | `"us-central1"` | no |
