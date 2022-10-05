@@ -20,10 +20,10 @@ No output.
 <!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
 
 To provision this example, run the following from within this directory:
-- Rename `mv terraform.tfvars.template terraform.tfvars` and update required variables
+- Security Command Center Virtual Machine Threat Detection service is enabled at the folder level.
+- Rename `mv terraform.tfvars.template terraform.tfvars` and update required variables.
 - `terraform init` to get the plugins
 - `terraform plan` to see the infrastructure plan
 - `terraform apply` to apply the infrastructure build
-- Wait 1-2 hours for the detection to show up in Security Command Center. The startup script will shutdown the vm to save on costs.
+- Wait 1-2 hours for the detection to show up in Security Command Center. The startup script will shutdown the gce instance to save on costs.
 - `terraform destroy` to destroy the built infrastructure
-- Check Security Command Center console between 1-2 hours for an alert.
