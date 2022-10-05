@@ -24,5 +24,6 @@ To provision this example, run the following from within this directory:
 - `terraform init` to get the plugins
 - `terraform plan` to see the infrastructure plan
 - `terraform apply` to apply the infrastructure build
+- Wait 1-2 hours for the detection to show up in Security Command Center. The startup script will shutdown the vm to save on costs.
 - `terraform destroy` to destroy the built infrastructure
 - Check Security Command Center console between 1-2 hours for an alert.
