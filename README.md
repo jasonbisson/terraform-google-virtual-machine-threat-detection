@@ -81,9 +81,6 @@ A service account with the following roles must be used to provision
 the resources of this module:
 
 - Project Creator: `roles/resourcemanager.projectCreator`
-- Compute Admin: `roles/compute.admin`
-- Storage Admin: `roles/storage.admin`
-- DNS Admin: `roles/dns.admin`
 
 ### APIs
 
